@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask App</title>
+</head>
+<body>
+
+<form method="POST" action="/search">
+    <div>
+        <label for="nm">검색이름</label>
+        <input type="text" name="nm">
+
+    </div>
+    <div class="'button'">
+        <button type="submit">검색</button>
+    </div>
+</form>
+    <p>
+
+        {% if members ==None %}
+            <h5>결과가 없습니다.</h5>
+        {% else %}
+            <h5>{{ cnt }}개의 결과가 있습니다.</h5>
+        {% endif %}
+        <table>
+        {% for member in members %}
+            <tr>
+                <td>{{ member.id }}</td>
+                <td>{{ member.name }}</td>
+                <td>{{ member.email }}</td>
+                <td>{{ member.phone }}</td>
+                <td>{{ member.start }}</td>
+                <td>{{ member.end }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </p>
+</div>
+
+</body>
+</html>
